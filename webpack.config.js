@@ -1,5 +1,6 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = {
   mode: 'development',
@@ -10,9 +11,12 @@ module.exports = {
       title: 'Weather App',
       template: './src/index.html',
     }),
+    new MiniCssExtractPlugin({
+      filename: 'css/[name].[hash:3].css',
+    }),
   ],
   output: {
-    filename: 'bundle.js',
+    filename: 'js/bundle.js',
     path: path.resolve(__dirname, 'dist'),
     clean: true,
   },
@@ -27,7 +31,10 @@ module.exports = {
         test: /\.(scss)$/,
         use: [
           {
-            loader: 'style-loader',
+            loader: MiniCssExtractPlugin.loader,
+            options: {
+              publicPath: '../',
+            },
           },
           {
             loader: 'css-loader',
@@ -49,7 +56,7 @@ module.exports = {
         test: /\.(png|svg|jpg|jpeg|gif)$/i,
         type: 'asset/resource',
         generator: {
-          filename: 'images/[hash][ext][query]',
+          filename: 'images/[name].[hash:3][ext][query]',
         },
       },
       {
