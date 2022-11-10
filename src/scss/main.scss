@@ -1,2 +1,21 @@
+// Custom
+$success: #1a9835;
+$light: #d1ddeb;
+
 // Import all of Bootstrap's CSS
 @import '~bootstrap/scss/bootstrap';
+
+body {
+  width: 100%;
+  height: 100vh;
+  background-color: #aaa;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container {
+  padding: 0;
+  border: 1px solid #333;
+  align-self: center;
+}

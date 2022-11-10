@@ -7,7 +7,62 @@
     <title>Weather App</title>
   </head>
   <body>
-    <h1>This is test</h1>
-    <button class="btn btn-primary">Click</button>
+    <div class="container">
+      <nav class="bg-success bg-gradient">
+        <h1>台北市大安區未來三天(72小時)天氣預報</h1>
+        <small>JSON data from 中央氣象局</small>
+        <div class="btn-group">
+          <button type="button" class="btn btn-danger dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+            台北市
+          </button>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="#">Action</a></li>
+            <li><a class="dropdown-item" href="#">Another action</a></li>
+            <li><a class="dropdown-item" href="#">Something else here</a></li>
+          </ul>
+        </div>
+      </nav>
+      <main class="bg-light bg-gradient">
+        <article>
+          <h2>台北市大安區</h2>
+          <small>站別: 大安森林公園</small>
+          <p class="temperature">18.9°</p>
+          <p class="windspeed">Wind Speed: 0</p>
+        </article>
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">日期</th>
+              <th scope="col">天氣現象</th>
+              <th scope="col">溫度</th>
+              <th scope="col">降雨機率</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">04-17</th>
+              <td>陰</td>
+              <td>20°</td>
+              <td>10%</td>
+            </tr>
+            <tr>
+              <th scope="row">04-18</th>
+              <td>多雲</td>
+              <td>22°</td>
+              <td>20%</td>
+            </tr>
+            <tr>
+              <th scope="row">04-19</th>
+              <td>陣雨或雷雨</td>
+              <td>24°</td>
+              <td>30%</td>
+            </tr>
+          </tbody>
+        </table>
+      </main>
+      <footer class="bg-success bg-gradient">
+        <p class="text-center text-light">• Eric Yeh • By JavaScript</p>
+      </footer>
+    </div>
   </body>
 </html>
