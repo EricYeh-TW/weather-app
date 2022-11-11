@@ -8,14 +8,14 @@ async function fetchWeatherForecast() {
   let elements = ['Wx', 'PoP', 'MinT', 'MaxT'];
   const url = `${https}/F-C0032-001?Authorization=${authorization}&format=JSON&elementName=${elements.join()}`;
   let data = await fetchURL(url);
-  let forecastData = data.records.location;
+  return data;
 }
 
 async function fetchWeatherObservation() {
   let elements = ['TEMP', 'Weather'];
   const url = `${https}/O-A0003-001?Authorization=${authorization}&format=JSON&elementName=${elements.join()}&parameterName=CITY`;
   let data = await fetchURL(url);
-  let observeData = data.records.location;
+  return data;
 }
 
 const fetchURL = async (url) => {
@@ -24,4 +24,19 @@ const fetchURL = async (url) => {
   return data;
 };
 
-fetchWeatherForecast();
+function handleClick(e) {
+  let el = e.target;
+  if (el.classList.value.split(' ').includes('dropdown-toggle')) return;
+  display(el.dataset.name);
+}
+
+function display(city) {
+  let toggle = document.querySelector('.dropdown-toggle');
+  let title = document.querySelector('.title');
+
+  toggle.innerHTML = city;
+  title.innerHTML = `${city}現在氣溫及天氣預報`;
+}
+
+const btn = document.querySelector('.btn-group');
+btn.addEventListener('click', (e) => handleClick(e));
