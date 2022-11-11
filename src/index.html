@@ -7,29 +7,49 @@
     <title>Weather App</title>
   </head>
   <body>
-    <div class="container">
-      <nav class="bg-success bg-gradient">
-        <h1>台北市大安區未來三天(72小時)天氣預報</h1>
-        <small>JSON data from 中央氣象局</small>
-        <div class="btn-group">
-          <button type="button" class="btn btn-danger dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-            台北市
+    <div class="container-md p-0">
+      <nav class="bg-success bg-gradient d-flex align-items-center">
+        <h1 class="title fs-4 p-2 ps-4 m-0">臺北市大安區未來三天(72小時)天氣預報</h1>
+        <div class="btn-group ms-auto">
+          <button
+            type="button"
+            class="btn dropdown-toggle text-white fw-bold me-3 p-1"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+          >
+            臺北市
           </button>
           <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="#">Action</a></li>
-            <li><a class="dropdown-item" href="#">Another action</a></li>
-            <li><a class="dropdown-item" href="#">Something else here</a></li>
+            <li><a class="dropdown-item" href="#">臺北市</a></li>
+            <li><a class="dropdown-item" href="#">基隆市</a></li>
+            <li><a class="dropdown-item" href="#">新北市</a></li>
+            <li><a class="dropdown-item" href="#">桃園市</a></li>
+            <li><a class="dropdown-item" href="#">新竹市</a></li>
+            <li><a class="dropdown-item" href="#">苗栗縣</a></li>
+            <li><a class="dropdown-item" href="#">台中市</a></li>
+            <li><a class="dropdown-item" href="#">彰化縣</a></li>
+            <li><a class="dropdown-item" href="#">雲林縣</a></li>
+            <li><a class="dropdown-item" href="#">南投縣</a></li>
+            <li><a class="dropdown-item" href="#">嘉義市</a></li>
+            <li><a class="dropdown-item" href="#">台南市</a></li>
+            <li><a class="dropdown-item" href="#">高雄市</a></li>
+            <li><a class="dropdown-item" href="#">屏東縣</a></li>
+            <li><a class="dropdown-item" href="#">宜蘭縣</a></li>
+            <li><a class="dropdown-item" href="#">花蓮縣</a></li>
+            <li><a class="dropdown-item" href="#">台東縣</a></li>
+            <li><a class="dropdown-item" href="#">澎湖縣</a></li>
+            <li><a class="dropdown-item" href="#">金門縣</a></li>
           </ul>
         </div>
       </nav>
       <main class="bg-light bg-gradient">
         <article>
-          <h2>台北市大安區</h2>
+          <h2>臺北市大安區</h2>
           <small>站別: 大安森林公園</small>
           <p class="temperature">18.9°</p>
           <p class="windspeed">Wind Speed: 0</p>
         </article>
-        <table class="table">
+        <table class="table m-0">
           <thead>
             <tr>
               <th scope="col">日期</th>
@@ -61,7 +81,7 @@
         </table>
       </main>
       <footer class="bg-success bg-gradient">
-        <p class="text-center text-light">• Eric Yeh • By JavaScript</p>
+        <p class="text-center text-light m-0 p-2">• Eric Yeh • By JavaScript</p>
       </footer>
     </div>
   </body>
