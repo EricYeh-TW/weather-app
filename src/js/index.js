@@ -12,8 +12,8 @@ async function fetchWeatherForecast() {
 }
 
 async function fetchWeatherObservation() {
-  let elements = ['TEMP', 'Weather'];
-  const url = `${https}/O-A0003-001?Authorization=${authorization}&format=JSON&elementName=${elements.join()}&parameterName=CITY`;
+  let elements = ['TEMP', 'TIME', 'Weather'];
+  const url = `${https}/O-A0003-001?Authorization=${authorization}&format=JSON&elementName=${elements.join()}&parameterName=CITY,TOWN`;
   let data = await fetchURL(url);
   return data;
 }
@@ -25,22 +25,35 @@ const fetchURL = async (url) => {
 };
 
 function handleClick(e) {
-  console.log(e);
   let el = e.target;
   if (el.classList.value.split(' ').includes('dropdown-toggle')) return;
   display(el.dataset.name);
 }
 
-function display(city) {
+async function display(city) {
   let toggle = document.querySelector('.dropdown-toggle');
   let title = document.querySelector('.title');
+  let [currentTown, currentStation, currentTemp, currentWeather] = ['town', 'station', 'temp', 'weather'].map(
+    (elem) => {
+      return document.querySelector(`.current__${elem}`);
+    },
+  );
+  let observeData = await fetchWeatherObservation();
+  let locationData = observeData.records.location
+    .filter((data) => data.parameter[0].parameterValue === city)
+    .filter((data) => data.weatherElement[0].elementValue !== '-99');
+
+  console.log(locationData);
 
   toggle.innerHTML = city;
   title.innerHTML = `${city}現在氣溫及天氣預報`;
+  currentTown.innerHTML = locationData[0].parameter.reduce((name, cur) => {
+    return (name += cur.parameterValue);
+  }, '');
+  currentStation.innerHTML = `站別: ${locationData[0].locationName}`;
+  currentTemp.innerHTML = `${locationData[0].weatherElement[0].elementValue} °C`;
+  currentWeather.innerHTML = locationData[0].weatherElement[1].elementValue;
 }
 
 const btn = document.querySelector('.btn-group');
-const dropDownItem = document.querySelector('.dropdown-item[data-type="default"]');
-console.log(dropDownItem);
 btn.addEventListener('click', (e) => handleClick(e));
-// handleClick(dropDownItem);
