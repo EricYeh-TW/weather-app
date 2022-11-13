@@ -25,6 +25,7 @@ const fetchURL = async (url) => {
 };
 
 function handleClick(e) {
+  console.log(e);
   let el = e.target;
   if (el.classList.value.split(' ').includes('dropdown-toggle')) return;
   display(el.dataset.name);
@@ -39,4 +40,7 @@ function display(city) {
 }
 
 const btn = document.querySelector('.btn-group');
+const dropDownItem = document.querySelector('.dropdown-item[data-type="default"]');
+console.log(dropDownItem);
 btn.addEventListener('click', (e) => handleClick(e));
+// handleClick(dropDownItem);

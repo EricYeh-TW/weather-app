@@ -1,29 +1,19 @@
 const path = require('path');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
+const common = require('./webpack.common');
+const { merge } = require('webpack-merge');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
-module.exports = {
-  mode: 'development',
-  entry: './src/js/index.js',
-  devtool: 'inline-source-map', // debug
+module.exports = merge(common, {
+  mode: 'production',
   plugins: [
-    new HtmlWebpackPlugin({
-      title: 'Weather App',
-      template: './src/index.html',
-    }),
     new MiniCssExtractPlugin({
-      filename: 'css/[name].[hash:3].css',
+      filename: 'css/[name].[hash:6].css',
     }),
   ],
   output: {
-    filename: 'js/bundle.js',
+    filename: 'js/bundle.[contenthash:6].js',
     path: path.resolve(__dirname, 'dist'),
     clean: true,
-  },
-  devServer: {
-    static: path.resolve(__dirname, 'dist'),
-    port: 8080,
-    hot: true,
   },
   module: {
     rules: [
@@ -52,17 +42,6 @@ module.exports = {
           },
         ],
       },
-      {
-        test: /\.(png|svg|jpg|jpeg|gif)$/i,
-        type: 'asset/resource',
-        generator: {
-          filename: 'images/[name].[hash:3][ext][query]',
-        },
-      },
-      {
-        test: /\.html$/i,
-        loader: 'html-loader',
-      },
     ],
   },
-};
+});
