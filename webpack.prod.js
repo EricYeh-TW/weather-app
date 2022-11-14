@@ -1,13 +1,16 @@
 const path = require('path');
 const common = require('./webpack.common');
 const { merge } = require('webpack-merge');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
+const TerserPlugin = require('terser-webpack-plugin');
 
 module.exports = merge(common, {
   mode: 'production',
   plugins: [
     new MiniCssExtractPlugin({
-      filename: 'css/[name].[hash:6].css',
+      filename: 'css/[name].[contenthash:6].css',
     }),
   ],
   output: {
@@ -42,6 +45,20 @@ module.exports = merge(common, {
           },
         ],
       },
+    ],
+  },
+  optimization: {
+    minimizer: [
+      new CssMinimizerPlugin(),
+      new TerserPlugin(),
+      new HtmlWebpackPlugin({
+        template: './src/index.html',
+        minify: {
+          removeComments: true,
+          removeAttributeQuotes: true,
+          collapseWhitespace: true,
+        },
+      }),
     ],
   },
 });
