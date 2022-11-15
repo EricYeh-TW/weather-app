@@ -1,19 +1,12 @@
 // Custom
 $font-family-sans-serif: Arial, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', 'Noto Sans', sans-serif;
+$primary: #1289e5;
 $success: #1a9835;
 $light: #d1ddeb;
+$dark: #555;
 
 // Import all of Bootstrap's CSS
 @import '~bootstrap/scss/bootstrap';
-
-body {
-  width: 100%;
-  height: 100vh;
-  background-color: #aaa;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
 
 .title::after {
   content: 'JSON data from 中央氣象局';

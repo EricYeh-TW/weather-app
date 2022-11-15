@@ -6,21 +6,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Weather App</title>
   </head>
-  <body>
-    <div class="container-md p-0">
+  <body class="d-flex justify-content-center align-items-center w-100 vh-100">
+    <div class="container-lg p-0">
       <nav class="bg-success bg-gradient d-flex align-items-center text-white">
-        <h1 class="title fs-4 p-2 ps-4 m-0 fw-bold"><span>新北市</span>現在及未來天氣狀況</h1>
+        <h1 class="title fs-4 p-2 ps-1 ps-md-4 m-0 fw-bold"><span>新北市</span>現在及未來天氣狀況</h1>
         <div class="btn-group ms-auto">
           <button
             type="button"
-            class="btn dropdown-toggle fw-bold me-3 text-white"
+            class="btn dropdown-toggle fw-bold me-1 me-md-4 text-white"
             data-bs-toggle="dropdown"
             aria-expanded="false"
           ></button>
           <ul class="dropdown-menu">
             <li><a class="dropdown-item" href="#" data-name="臺北市">臺北市</a></li>
-            <li><a class="dropdown-item" href="#" data-name="基隆市">基隆市</a></li>
             <li><a class="dropdown-item" href="#" data-name="新北市">新北市</a></li>
+            <li><a class="dropdown-item" href="#" data-name="基隆市">基隆市</a></li>
             <li><a class="dropdown-item" href="#" data-name="桃園市">桃園市</a></li>
             <li><a class="dropdown-item" href="#" data-name="新竹市">新竹市</a></li>
             <li><a class="dropdown-item" href="#" data-name="苗栗縣">苗栗縣</a></li>
@@ -37,28 +37,28 @@
           </ul>
         </div>
       </nav>
-      <main class="bg-light bg-gradient container-fluid">
+      <main class="container-fluid bg-light bg-gradient">
         <div class="row">
           <article class="text-center m-auto p-3 col-12 col-md"></article>
-          <table class="table table-striped text-center align-middle m-0 col-12 col-md">
-            <thead>
+          <table class="table table-borderless text-dark text-center align-middle m-0 col-12 col-md">
+            <thead class="table-active">
               <tr>
                 <th scope="col">日期</th>
                 <th scope="col">天氣現象</th>
                 <th scope="col">降雨機率</th>
-                <th scope="col">溫度</th>
+                <th scope="col">平均溫度</th>
               </tr>
             </thead>
             <tbody>
               <tr class="first__day"></tr>
-              <tr class="second__day"></tr>
+              <tr class="second__day table-active"></tr>
               <tr class="third__day"></tr>
             </tbody>
           </table>
         </div>
       </main>
       <footer class="bg-success bg-gradient">
-        <p class="text-center text-light m-0 p-2">• Eric Yeh • By JavaScript</p>
+        <p class="text-center text-white m-0 p-1">• Eric Yeh</p>
       </footer>
     </div>
   </body>

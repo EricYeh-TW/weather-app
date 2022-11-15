@@ -54,10 +54,10 @@ const display = async (city) => {
   // observe
   // prettier-ignore
   current.innerHTML = `
-    <h2 class="${style}">${observeData[0].parameter.reduce((name, cur) => name += cur.parameterValue, "")}</h2>
-    <small class="${style}">站別: ${observeData[0].locationName}</small>
-    <p class="${style} temp fs-1 ">${observeData[0].weatherElement[0].elementValue}</p>
-    <p class="${style} fs-4 ">${observeData[0].weatherElement[1].elementValue}</p>
+    <h2 class="${style} text-primary">${observeData[0].parameter.reduce((name, cur) => name += cur.parameterValue, "")}</h2>
+    <small class="${style} text-dark">站別: ${observeData[0].locationName}</small>
+    <h1 class="${style} temp text-primary">${observeData[0].weatherElement[0].elementValue}</h1>
+    <p class="${style} fs-4 text-dark">${observeData[0].weatherElement[1].elementValue}</p>
   `;
 
   // forecast
