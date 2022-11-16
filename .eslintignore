@@ -1,0 +1,10 @@
+/node_modules
+
+# production
+/build
+/dist
+
+# config
+webpack.common.js
+webpack.dev.js
+webpack.prod.js
