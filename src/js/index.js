@@ -3,6 +3,8 @@ import '../scss/main.scss';
 import * as bootstrap from 'bootstrap';
 import handleClick from './handle';
 import display from './display';
+import home from '../templates/home.html';
+import about from '../templates/about.html';
 
 const btn = document.querySelector('.btn-group');
 const testButton = document.querySelector('.testButton');
@@ -16,12 +18,8 @@ testButton.addEventListener('click', () => {
   const test = document.querySelector('.test');
   isClick = !isClick;
   if (isClick) {
-    fetch('../templates/about.html')
-      .then((res) => res.text())
-      .then((result) => (test.innerHTML = result));
+    test.innerHTML = about;
   } else {
-    fetch('../templates/home.html')
-      .then((res) => res.text())
-      .then((result) => (test.innerHTML = result));
+    test.innerHTML = home;
   }
 });
