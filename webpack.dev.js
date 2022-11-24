@@ -20,15 +20,16 @@ module.exports = merge(common, {
       template: './src/index.html',
       filename: './index.html',
     }),
-  ].concat(
-    pages.map((page) => {
-      return new HtmlWebpackPlugin({
-        template: `./src/templates/${page}.html`,
-        filename: `./templates/${page}.html`,
-        chunks: [page],
-      });
-    }),
-  ),
+  ],
+  // .concat(
+  //   pages.map((page) => {
+  //     return new HtmlWebpackPlugin({
+  //       template: `./src/templates/${page}.html`,
+  //       filename: `./templates/${page}.html`,
+  //       chunks: [page],
+  //     });
+  //   }),
+  // )
   module: {
     rules: [
       {
