@@ -1,5 +1,6 @@
-@import './abstracts/variables';
 @import '~bootstrap/scss/bootstrap';
+@import './abstracts/mixin';
+@import './abstracts/variables';
 
 html {
   height: fill-available;
@@ -29,6 +30,7 @@ body {
   background-position: center;
   filter: blur(4px);
   z-index: -1;
+  scale: 1.05;
 }
 
 .header {
