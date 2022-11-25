@@ -1,5 +1,5 @@
 // Custom
-$font-family-sans-serif: 'Noto Sans', Arial, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+$font-family-sans-serif: Arial, -apple-system, 'Noto Sans', 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
 $primary: #1289e5;
 $success: #1a9835;
 $light: #d1ddeb;
@@ -20,29 +20,21 @@ body {
   min-height: fill-available;
   min-height: -webkit-fill-available;
   color: #fff;
+  padding: 1.5rem;
+  position: relative;
 }
 
 .bg {
+  position: fixed;
   width: 100%;
-  height: 100%;
-  padding: 1.5rem;
+  height: 100vh;
+  left: 0;
+  top: 0;
   background: linear-gradient(0deg, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url(../images/bg-image-daytime-mobile.jpg);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
-  background-attachment: fixed;
   z-index: -1;
-}
-
-@supports (-webkit-touch-callout: none) {
-  .bg {
-    background: linear-gradient(0deg, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
-      url(../images/bg-image-daytime-mobile.jpg);
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
-  }
 }
 
 .header {
