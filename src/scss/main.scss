@@ -1,12 +1,4 @@
-// Custom
-$font-family-sans-serif: Arial, -apple-system, 'Noto Sans', 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
-$primary: #1289e5;
-$success: #1a9835;
-$light: #d1ddeb;
-$dark: #555;
-$spacer: 1rem;
-
-// Import all of Bootstrap's CSS
+@import './abstracts/variables';
 @import '~bootstrap/scss/bootstrap';
 
 html {
@@ -30,7 +22,8 @@ body {
   height: 100vh;
   left: 0;
   top: 0;
-  background: linear-gradient(0deg, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url(../images/bg-image-daytime-mobile.jpg);
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
+    url('../images/bg-image-daytime-mobile.jpg');
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -56,7 +49,7 @@ body {
   position: relative;
 
   &__city {
-    font-size: 2.25rem;
+    font-size: 2rem;
   }
   &__location {
     font-size: 1rem;
@@ -124,9 +117,4 @@ body {
   background-repeat: no-repeat;
   margin: 0;
   padding: 0;
-}
-
-.dropdown-menu {
-  max-height: 20rem;
-  overflow-y: auto;
 }
