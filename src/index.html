@@ -6,59 +6,43 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Weather App</title>
   </head>
-  <body class="d-flex justify-content-center align-items-center w-100 vh-100">
-    <div class="container-lg p-0">
-      <nav class="bg-success bg-gradient d-flex align-items-center text-white">
-        <h1 class="title fs-4 p-2 ps-1 ps-md-4 m-0 fw-bold"><span>新北市</span>現在及未來天氣狀況</h1>
-        <div class="btn-group ms-auto">
-          <button
-            type="button"
-            class="btn dropdown-toggle fw-bold me-1 me-md-4 text-white"
-            data-bs-toggle="dropdown"
-            aria-expanded="false"
-          ></button>
-          <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="#" data-name="臺北市">臺北市</a></li>
-            <li><a class="dropdown-item" href="#" data-name="新北市">新北市</a></li>
-            <li><a class="dropdown-item" href="#" data-name="基隆市">基隆市</a></li>
-            <li><a class="dropdown-item" href="#" data-name="桃園市">桃園市</a></li>
-            <li><a class="dropdown-item" href="#" data-name="新竹市">新竹市</a></li>
-            <li><a class="dropdown-item" href="#" data-name="苗栗縣">苗栗縣</a></li>
-            <li><a class="dropdown-item" href="#" data-name="彰化縣">彰化縣</a></li>
-            <li><a class="dropdown-item" href="#" data-name="雲林縣">雲林縣</a></li>
-            <li><a class="dropdown-item" href="#" data-name="南投縣">南投縣</a></li>
-            <li><a class="dropdown-item" href="#" data-name="嘉義市">嘉義市</a></li>
-            <li><a class="dropdown-item" href="#" data-name="高雄市">高雄市</a></li>
-            <li><a class="dropdown-item" href="#" data-name="屏東縣">屏東縣</a></li>
-            <li><a class="dropdown-item" href="#" data-name="宜蘭縣">宜蘭縣</a></li>
-            <li><a class="dropdown-item" href="#" data-name="花蓮縣">花蓮縣</a></li>
-            <li><a class="dropdown-item" href="#" data-name="澎湖縣">澎湖縣</a></li>
-            <li><a class="dropdown-item" href="#" data-name="金門縣">金門縣</a></li>
-          </ul>
+  <body>
+    <header class="header">
+      <h2 class="header__title m-0 p-0">目前天氣</h2>
+      <a class="header__option menu m-0 p-0" href="#" role="button" aria-disabled="true"></a>
+    </header>
+    <section class="current pt-4 pb-4">
+      <h1 class="current__city m-0 fw-bold">臺北市大安區</h1>
+      <small class="current__location d-block mt-3 fw-300">站別: 大安森林公園</small>
+      <p class="current__time m-0 fw-300">週二 · 2022 / 11 / 23</p>
+      <p class="current__temp m-0 fw-bold">21.5°</p>
+      <p class="current__desc mb-4">☁ 陰短暫陣雨</p>
+      <a class="current__forward arrow" role="button" aria-disabled="true"></a>
+    </section>
+    <div class="overlay">
+      <header class="header">
+        <h2 class="header__title m-0 p-0">天氣預報</h2>
+      </header>
+      <section class="forecast">
+        <h3 class="forecast__time fw-300 mt-3 mb-3">週三 · 2022 / 11 / 24</h3>
+        <div class="forecast__content">
+          <p class="forecast__desc"><span class="forecast__icon">☁</span>陰短暫陣雨</p>
+          <p class="forecast__desc"><span class="forecast__icon">💧</span>50%</p>
+          <p class="forecast__desc"><span class="forecast__icon">🌡</span>22.5°</p>
         </div>
-      </nav>
-      <main class="container-fluid bg-light bg-gradient">
-        <div class="row">
-          <article class="text-center m-auto p-3 col-12 col-md"></article>
-          <table class="table table-borderless text-dark text-center align-middle m-0 col-12 col-md">
-            <thead class="table-active">
-              <tr>
-                <th scope="col">日期</th>
-                <th scope="col">天氣現象</th>
-                <th scope="col">降雨機率</th>
-                <th scope="col">平均溫度</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr class="first__day"></tr>
-              <tr class="second__day table-active"></tr>
-              <tr class="third__day"></tr>
-            </tbody>
-          </table>
+        <h3 class="forecast__time fw-300 mt-3 mb-3">週三 · 2022 / 11 / 24</h3>
+        <div class="forecast__content">
+          <p class="forecast__desc"><span class="forecast__icon">☁</span>陰短暫陣雨</p>
+          <p class="forecast__desc"><span class="forecast__icon">💧</span>50%</p>
+          <p class="forecast__desc"><span class="forecast__icon">🌡</span>22.5°</p>
         </div>
-      </main>
-      <footer class="bg-success bg-gradient test"></footer>
-      <button class="testButton">click</button>
+        <h3 class="forecast__time fw-300 mt-3 mb-3">週三 · 2022 / 11 / 24</h3>
+        <div class="forecast__content">
+          <p class="forecast__desc"><span class="forecast__icon">☁</span>陰短暫陣雨</p>
+          <p class="forecast__desc"><span class="forecast__icon">💧</span>50%</p>
+          <p class="forecast__desc"><span class="forecast__icon">🌡</span>22.5°</p>
+        </div>
+      </section>
     </div>
   </body>
 </html>
