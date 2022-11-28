@@ -1,0 +1,24 @@
+.current {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+
+  &__city {
+    @include reset;
+    font-size: 2rem;
+  }
+  &__location {
+    font-size: 1rem;
+  }
+  &__time {
+    @include reset;
+    font-size: 1rem;
+  }
+  &__temp {
+    @include reset;
+    font-size: 6rem;
+  }
+  &__desc {
+    font-size: 1.5rem;
+  }
+}

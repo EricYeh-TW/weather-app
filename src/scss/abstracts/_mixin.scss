@@ -1,7 +1,21 @@
+/*
+  xs: 0,
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px,
+  xxl: 1400px
+*/
+
 @mixin respond($breakpoint) {
-  @if $breakpoint == desktop {
+  @if $breakpoint == sm {
     @media (min-width: 576px) {
       @content;
     }
   }
+}
+
+@mixin reset {
+  margin: 0;
+  padding: 0;
 }

@@ -1,0 +1,26 @@
+.forecast {
+  &__time {
+    font-size: 1.25rem;
+  }
+  &__content {
+    display: flex;
+    justify-content: space-between;
+    text-align: center;
+    padding-bottom: 1rem;
+    border-bottom: #fff 1px solid;
+  }
+  &__desc {
+    font-size: 1.25rem;
+  }
+  &__icon {
+    display: block;
+    font-size: 3rem;
+  }
+}
+
+.overlay {
+  margin: -1.5rem;
+  padding: 1.5rem;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(17.5px);
+}
