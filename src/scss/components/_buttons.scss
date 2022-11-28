@@ -2,17 +2,12 @@
   @include reset;
   display: block;
   position: absolute;
-  width: 40px;
-  height: 40px;
+  width: 2.5rem;
+  height: 2.5rem;
+  right: 0;
+  top: 50%;
   font-size: 1.75rem;
-  left: 0;
-  top: 60%;
-  translate: 0 -50%;
   color: #fff;
-
-  @include respond(sm) {
-    width: 180px;
-  }
 
   &:before {
     content: '下一個站別';
@@ -23,32 +18,74 @@
     display: none;
   }
 
-  @include respond(sm) {
+  &::after {
+    content: '';
+    position: absolute;
+    right: 0;
+    top: 50%;
+    translate: 0 -50%;
+    width: 0;
+    height: 0;
+    border-top: 1.5rem solid transparent;
+    border-bottom: 1.5rem solid transparent;
+    border-left: 1.5rem solid #fff;
+  }
+
+  @include respond(md) {
+    top: 60%;
+    left: 0;
+    width: 11rem;
+
     &:before {
       display: block;
     }
-  }
 
-  &::after {
-    content: '';
-    right: 0;
-    width: 28px;
-    height: 100%;
-    position: absolute;
-    background-image: url('../images/arrow.png');
-    background-size: contain;
-    background-position: center;
-    background-repeat: no-repeat;
+    &::after {
+      border-top: 1rem solid transparent;
+      border-bottom: 1rem solid transparent;
+      border-left: 1rem solid #fff;
+    }
   }
 }
 
 .menu-btn {
-  display: block;
-  width: 28px;
-  height: 28px;
-  background-image: url('../images/menu.png');
-  background-size: contain;
-  background-position: center;
-  background-repeat: no-repeat;
   @include reset;
+  display: block;
+  position: absolute;
+  width: 1.5rem;
+  right: 0;
+  top: 50%;
+  translate: 0 calc(-50% - 8px);
+
+  &::before {
+    content: '';
+    position: absolute;
+    display: block;
+    width: 1.5rem;
+    height: 2px;
+    left: 0;
+    top: 50%;
+    translate: 0 -50%;
+    background-color: #fff;
+    box-shadow: 0 -8px 0 #fff, 0 8px 0 #fff;
+  }
+
+  &::after {
+    content: '選項';
+    position: absolute;
+    display: none;
+    font-size: 1.75rem;
+    color: #fff;
+    right: 0;
+    top: 50%;
+    translate: 0 -50%;
+  }
+
+  @include respond(md) {
+    width: 6rem;
+
+    &::after {
+      display: block;
+    }
+  }
 }
