@@ -1,21 +1,51 @@
 .arrow-btn {
+  @include reset;
   display: block;
   position: absolute;
   width: 40px;
   height: 40px;
-  background-image: url('../images/arrow.png');
-  background-size: contain;
-  background-position: center;
-  background-repeat: no-repeat;
-  @include reset;
-  right: 0;
-  top: 50%;
+  font-size: 1.75rem;
+  left: 0;
+  top: 60%;
+  translate: 0 -50%;
+  color: #fff;
+
+  @include respond(sm) {
+    width: 180px;
+  }
+
+  &:before {
+    content: '下一個站別';
+    position: absolute;
+    height: 100%;
+    left: 0;
+    vertical-align: middle;
+    display: none;
+  }
+
+  @include respond(sm) {
+    &:before {
+      display: block;
+    }
+  }
+
+  &::after {
+    content: '';
+    right: 0;
+    width: 28px;
+    height: 100%;
+    position: absolute;
+    background-image: url('../images/arrow.png');
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
 }
 
 .menu-btn {
   display: block;
-  width: 40px;
-  height: 40px;
+  width: 28px;
+  height: 28px;
   background-image: url('../images/menu.png');
   background-size: contain;
   background-position: center;

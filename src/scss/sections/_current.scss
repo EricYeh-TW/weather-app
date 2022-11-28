@@ -2,23 +2,75 @@
   display: flex;
   flex-direction: column;
   position: relative;
+  @include reset;
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
 
   &__city {
     @include reset;
-    font-size: 2rem;
+    font-size: 2.5rem;
   }
+
+  @include respond(sm) {
+    &__city {
+      font-size: 3rem;
+    }
+  }
+
   &__location {
+    @include reset;
+    // padding-top: 1rem;
     font-size: 1rem;
   }
+
+  @include respond(sm) {
+    &__location {
+      font-size: 1.25rem;
+    }
+  }
+
   &__time {
     @include reset;
     font-size: 1rem;
   }
+
+  @include respond(sm) {
+    &__time {
+      font-size: 1.25rem;
+    }
+  }
+
   &__temp {
     @include reset;
+    line-height: 1.5;
     font-size: 6rem;
   }
+
+  @include respond(sm) {
+    &__temp {
+      text-align: right;
+      font-size: 9rem;
+      line-height: 1;
+    }
+  }
+
   &__desc {
+    @include reset;
     font-size: 1.5rem;
+    line-height: 2;
+  }
+
+  @include respond(sm) {
+    &__desc {
+      font-size: 3rem;
+      text-align: right;
+    }
+  }
+}
+
+@include respond(sm) {
+  .current {
+    flex-direction: row;
+    justify-content: space-between;
   }
 }

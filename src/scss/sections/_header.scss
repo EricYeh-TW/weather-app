@@ -10,4 +10,21 @@
     font-size: 1.25rem;
     @include reset;
   }
+
+  &__menu {
+    display: flex;
+    font-size: 1.25rem;
+    align-items: center;
+
+    span {
+      display: none;
+      cursor: pointer;
+    }
+
+    @include respond(sm) {
+      span {
+        display: inline;
+      }
+    }
+  }
 }
