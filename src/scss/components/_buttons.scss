@@ -11,6 +11,7 @@
 
   &:before {
     content: '下一個站別';
+    color: #fff;
     position: absolute;
     height: 100%;
     left: 0;
@@ -53,6 +54,7 @@
   display: block;
   position: absolute;
   width: 1.5rem;
+  height: 2.5rem;
   right: 0;
   top: 50%;
   translate: 0 calc(-50% - 8px);
