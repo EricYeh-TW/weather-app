@@ -22,9 +22,25 @@ body {
   background: linear-gradient(0deg, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
     url('../images/bg-image-daytime-mobile.jpg');
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size: 100%;
   background-position: center;
   filter: blur(4px);
   z-index: -1;
   scale: 1.05;
+
+  @include respond(md) {
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
+      url('../images/bg-image-daytime-table.jpg');
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-position: center;
+  }
+
+  @include respond(lg) {
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
+      url('../images/bg-image-daytime-desktop.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+  }
 }
