@@ -32,6 +32,7 @@
     @include reset;
     font-size: 1.5rem;
     line-height: 2;
+    margin-bottom: 1rem;
   }
 
   @include respond(md) {
@@ -59,6 +60,7 @@
     &__desc {
       font-size: 3rem;
       text-align: right;
+      margin-bottom: 0;
     }
   }
 }

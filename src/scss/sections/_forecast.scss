@@ -1,26 +1,76 @@
-.forecast {
-  &__time {
-    font-size: 1.25rem;
-  }
-  &__content {
-    display: flex;
-    justify-content: space-between;
-    text-align: center;
-    padding-bottom: 1rem;
-    border-bottom: #fff 1px solid;
-  }
-  &__desc {
-    font-size: 1.25rem;
-  }
-  &__icon {
-    display: block;
-    font-size: 3rem;
-  }
-}
-
 .overlay {
   margin: -1.5rem;
   padding: 1.5rem;
   background: rgba(0, 0, 0, 0.5);
   backdrop-filter: blur(17.5px);
+}
+
+.forecast {
+  &__content {
+    @include reset;
+    display: flex;
+    justify-content: space-between;
+    text-align: center;
+    flex-wrap: wrap;
+    padding: 1rem;
+    border-bottom: rgba($color: #fff, $alpha: 0.3) 1px solid;
+  }
+
+  @include respond(lg) {
+    &__content {
+      flex-direction: column;
+      border-bottom: 0;
+    }
+  }
+
+  &__time {
+    width: 100%;
+    text-align: left;
+    font-size: 1.25rem;
+    margin-bottom: 1rem;
+  }
+
+  @include respond(lg) {
+    &__time {
+      text-align: left;
+    }
+  }
+
+  &__item {
+    display: flex;
+    flex-direction: column;
+  }
+
+  @include respond(lg) {
+    &__item {
+      flex-direction: row;
+      justify-content: space-between;
+      padding-bottom: 3rem;
+    }
+  }
+
+  &__icon {
+    @include reset;
+    font-size: 4rem;
+  }
+
+  &__icon > span {
+    display: none;
+  }
+
+  @include respond(lg) {
+    &__icon {
+      font-size: 1.5rem;
+    }
+
+    &__icon > span {
+      display: inline-block;
+      font-size: 1.5rem;
+    }
+  }
+
+  &__desc {
+    @include reset;
+    font-size: 1.5rem;
+  }
 }
