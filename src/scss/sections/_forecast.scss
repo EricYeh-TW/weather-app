@@ -1,6 +1,6 @@
 .overlay {
-  margin: -1.5rem;
-  padding: 1.5rem;
+  margin: $base-padding * -1;
+  padding: $base-padding;
   background: rgba(0, 0, 0, 0.5);
   backdrop-filter: blur(17.5px);
 }
@@ -12,7 +12,7 @@
     justify-content: space-between;
     text-align: center;
     flex-wrap: wrap;
-    padding: 1rem;
+    padding: 1rem 0;
     border-bottom: rgba($color: #fff, $alpha: 0.3) 1px solid;
   }
 
@@ -30,8 +30,8 @@
 
   &__icon {
     @include reset;
-    font-size: 4rem;
-    padding-bottom: 2rem;
+    font-size: 3rem;
+    padding-bottom: 1.5rem;
   }
 
   &__icon > span {
@@ -41,12 +41,13 @@
 
   &__desc {
     @include reset;
-    font-size: 1.5rem;
+    font-size: 1rem;
   }
 
   @include respond(lg) {
     &__content {
       flex-direction: column;
+      padding: 1rem;
       border-bottom: 0;
       border-right: rgba($color: #fff, $alpha: 0.3) 1px solid;
     }
@@ -62,12 +63,16 @@
     &__item {
       flex-direction: row;
       justify-content: space-between;
-      padding-bottom: 3rem;
+      padding-bottom: 4rem;
+    }
+
+    &__item:last-child {
+      padding-bottom: 0;
     }
 
     &__icon {
-      padding-bottom: 1.5;
       font-size: 1.5rem;
+      padding: 0;
       text-align: justify;
       vertical-align: middle;
     }
@@ -76,6 +81,10 @@
       display: inline-block;
       font-size: 1.5rem;
       padding-left: 1rem;
+    }
+
+    &__desc {
+      font-size: 1.5rem;
     }
   }
 }
