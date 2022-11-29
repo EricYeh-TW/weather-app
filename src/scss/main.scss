@@ -1,13 +1,18 @@
 // bootstrap
 @import '~bootstrap/scss/bootstrap';
-// (1
+
+// Variables
 @import './abstracts/mixin';
 @import './abstracts/variables';
-// (2
+
+// Base
 @import './base/base';
+
+// Sections
 @import './sections/header';
 @import './sections/current';
 @import './sections/forecast';
 @import './sections/menu';
-// (3
+
+// Components
 @import './components/buttons';

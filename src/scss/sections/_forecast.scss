@@ -16,13 +16,6 @@
     border-bottom: rgba($color: #fff, $alpha: 0.3) 1px solid;
   }
 
-  @include respond(lg) {
-    &__content {
-      flex-direction: column;
-      border-bottom: 0;
-    }
-  }
-
   &__time {
     width: 100%;
     text-align: left;
@@ -30,47 +23,59 @@
     margin-bottom: 1rem;
   }
 
-  @include respond(lg) {
-    &__time {
-      text-align: left;
-    }
-  }
-
   &__item {
     display: flex;
     flex-direction: column;
   }
 
-  @include respond(lg) {
-    &__item {
-      flex-direction: row;
-      justify-content: space-between;
-      padding-bottom: 3rem;
-    }
-  }
-
   &__icon {
     @include reset;
     font-size: 4rem;
+    padding-bottom: 2rem;
   }
 
   &__icon > span {
+    font-weight: normal;
     display: none;
-  }
-
-  @include respond(lg) {
-    &__icon {
-      font-size: 1.5rem;
-    }
-
-    &__icon > span {
-      display: inline-block;
-      font-size: 1.5rem;
-    }
   }
 
   &__desc {
     @include reset;
     font-size: 1.5rem;
+  }
+
+  @include respond(lg) {
+    &__content {
+      flex-direction: column;
+      border-bottom: 0;
+      border-right: rgba($color: #fff, $alpha: 0.3) 1px solid;
+    }
+
+    &__content:last-child {
+      border: 0;
+    }
+
+    &__time {
+      text-align: left;
+    }
+
+    &__item {
+      flex-direction: row;
+      justify-content: space-between;
+      padding-bottom: 3rem;
+    }
+
+    &__icon {
+      padding-bottom: 1.5;
+      font-size: 1.5rem;
+      text-align: justify;
+      vertical-align: middle;
+    }
+
+    &__icon > span {
+      display: inline-block;
+      font-size: 1.5rem;
+      padding-left: 1rem;
+    }
   }
 }
