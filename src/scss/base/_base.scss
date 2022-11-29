@@ -1,16 +1,14 @@
 html {
-  height: fill-available;
-  height: -webkit-fill-available;
+  @include fix-height;
 }
 
 body {
   width: 100%;
   min-height: 100vh;
-  min-height: fill-available;
-  min-height: -webkit-fill-available;
   color: #fff;
   padding: $base-padding;
   position: relative;
+  @include fix-min-height;
 }
 
 .bg {

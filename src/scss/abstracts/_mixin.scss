@@ -31,3 +31,17 @@
   margin: 0;
   padding: 0;
 }
+
+@mixin fix-height {
+  height: fill-available;
+  height: -moz-available;
+  height: -moz-fill-available;
+  height: -webkit-fill-available;
+}
+
+@mixin fix-min-height {
+  min-height: fill-available;
+  min-height: -moz-available;
+  min-height: -moz-fill-available;
+  min-height: -webkit-fill-available;
+}
