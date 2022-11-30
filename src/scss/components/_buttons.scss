@@ -5,7 +5,7 @@
   width: 2.5rem;
   height: 2.5rem;
   right: 0;
-  top: 50%;
+  top: 55%;
   font-size: 1.75rem;
   color: #fff;
 
@@ -33,9 +33,10 @@
   }
 
   @include respond(md) {
-    top: 60%;
+    top: 100%;
     left: 0;
     width: 11rem;
+    translate: 0 calc(-100% - $content-padding * 2);
 
     &:before {
       display: block;

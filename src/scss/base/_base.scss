@@ -2,15 +2,6 @@ html {
   @include fix-height;
 }
 
-body {
-  width: 100%;
-  min-height: 100vh;
-  color: #fff;
-  padding: $base-padding;
-  position: relative;
-  @include fix-min-height;
-}
-
 .bg {
   position: fixed;
   width: 100%;
@@ -20,7 +11,7 @@ body {
   background: linear-gradient(0deg, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
     url('../images/bg-image-daytime-mobile.jpg');
   background-repeat: no-repeat;
-  background-size: 100%;
+  background-size: cover;
   background-position: center;
   filter: blur(4px);
   z-index: -1;
@@ -30,7 +21,7 @@ body {
     background: linear-gradient(0deg, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
       url('../images/bg-image-daytime-table.jpg');
     background-repeat: no-repeat;
-    background-size: 100%;
+    background-size: cover;
     background-position: center;
   }
 
@@ -41,4 +32,15 @@ body {
     background-size: cover;
     background-position: center;
   }
+}
+
+#root {
+  width: 100vw;
+  height: 100vh;
+  min-height: 100vh;
+  position: relative;
+  padding: $base-padding;
+  color: #fff;
+  @include fix-min-height;
+  @include fix-width;
 }

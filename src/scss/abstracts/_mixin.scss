@@ -39,6 +39,13 @@
   height: -webkit-fill-available;
 }
 
+@mixin fix-width {
+  width: fill-available;
+  width: -moz-available;
+  width: -moz-fill-available;
+  width: -webkit-fill-available;
+}
+
 @mixin fix-min-height {
   min-height: fill-available;
   min-height: -moz-available;

@@ -1,28 +1,12 @@
 .header {
   @include reset;
+  width: 100%;
   position: relative;
   padding-bottom: 0.5rem;
-  border-bottom: 1px solid #fff;
+  border-bottom: $primary-border;
 
   &__title {
     @include reset;
     font-size: 1.25rem;
   }
-
-  // &__menu {
-  //   display: flex;
-  //   font-size: 1.25rem;
-  //   align-items: center;
-
-  //   span {
-  //     display: none;
-  //     cursor: pointer;
-  //   }
-
-  //   @include respond(md) {
-  //     span {
-  //       display: inline;
-  //     }
-  //   }
-  // }
 }

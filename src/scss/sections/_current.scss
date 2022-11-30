@@ -1,24 +1,27 @@
 .current {
   @include reset;
+  position: relative;
   display: flex;
   flex-direction: column;
-  position: relative;
-  padding-top: 1.5rem;
-  padding-bottom: 1.5rem;
+  flex-wrap: wrap;
+  padding: $content-padding 0;
+
+  &__item {
+    width: 100%;
+  }
 
   &__city {
     @include reset;
+    margin: $content-margin 0;
     font-size: 2.5rem;
   }
 
   &__location {
     @include reset;
-    font-size: 1rem;
   }
 
   &__time {
     @include reset;
-    font-size: 1rem;
   }
 
   &__temp {
@@ -31,12 +34,16 @@
     @include reset;
     font-size: 1.5rem;
     line-height: 2;
-    margin-bottom: 1rem;
+    margin-bottom: $content-margin;
   }
 
   @include respond(md) {
     flex-direction: row;
-    justify-content: space-between;
+
+    &__item {
+      width: 50%;
+      flex-grow: 1;
+    }
 
     &__city {
       font-size: 3rem;
@@ -52,6 +59,7 @@
 
     &__temp {
       text-align: right;
+
       font-size: 9rem;
       line-height: 1;
     }
