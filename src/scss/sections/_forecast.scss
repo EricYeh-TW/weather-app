@@ -6,26 +6,27 @@
 }
 
 .forecast {
-  &__content {
-    @include reset;
-    display: flex;
-    justify-content: space-between;
-    text-align: center;
-    flex-wrap: wrap;
-    padding: 1rem 0;
-    border-bottom: $secondary-border;
-  }
+  @include reset;
+  position: relative;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
 
   &__time {
+    @include reset;
     width: 100%;
     text-align: left;
     font-size: 1.25rem;
-    margin-bottom: 1rem;
+    margin-top: $content-margin;
   }
 
   &__item {
+    width: 100%;
     display: flex;
-    flex-direction: column;
+    padding: $content-padding 0;
+    justify-content: space-between;
+    border-bottom: $secondary-border;
   }
 
   &__icon {
@@ -45,29 +46,15 @@
   }
 
   @include respond(lg) {
-    &__content {
-      flex-direction: column;
-      padding: 1rem;
-      border-bottom: 0;
-      border-right: $secondary-border;
-    }
-
-    &__content:last-child {
-      border: 0;
-    }
-
     &__time {
       text-align: left;
     }
 
     &__item {
-      flex-direction: row;
-      justify-content: space-between;
-      padding-bottom: 4rem;
-    }
-
-    &__item:last-child {
-      padding-bottom: 0;
+      flex-direction: column;
+      padding: 1rem;
+      border-bottom: 0;
+      border-right: $secondary-border;
     }
 
     &__icon {

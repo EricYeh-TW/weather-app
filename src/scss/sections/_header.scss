@@ -4,6 +4,7 @@
   position: relative;
   padding-bottom: 0.5rem;
   border-bottom: $primary-border;
+  text-align: left;
 
   &__title {
     @include reset;
