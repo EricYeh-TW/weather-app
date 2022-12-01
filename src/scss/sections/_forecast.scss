@@ -23,10 +23,6 @@
     border-bottom: $secondary-border;
   }
 
-  &__item > div {
-    width: calc(100% / 3);
-  }
-
   &__time {
     @include reset;
     width: 100%;
@@ -34,14 +30,24 @@
     font-size: 1.25rem;
   }
 
-  i {
-    font-size: 3rem;
-    font-style: normal;
-  }
+  &__content {
+    width: calc(100% / 3);
+    font-size: 1rem;
 
-  i > span {
-    font-weight: normal;
-    display: none;
+    i {
+      font-size: 3rem;
+      font-style: normal;
+    }
+
+    span {
+      font-size: 1rem;
+      display: none;
+    }
+
+    p {
+      @include reset;
+      font-size: 1rem;
+    }
   }
 
   @include respond(lg) {
@@ -52,7 +58,7 @@
     &__item {
       flex-direction: column;
       border-bottom: 0;
-      padding: $content-padding;
+      padding: 1rem;
       border-right: $secondary-border;
     }
 
@@ -60,26 +66,27 @@
       border: 0;
     }
 
-    &__item > div {
+    &__content {
       width: 100%;
-    }
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      text-align: left;
 
-    i {
-      display: inline-block;
-      font-size: 1.5rem;
-    }
+      i {
+        font-size: 1.5rem;
+        display: inline-block;
+        padding: $content-padding 0;
+      }
 
-    i > span {
-      display: inline-block;
-      font-size: 1.5rem;
-      padding-left: 1rem;
-    }
+      span {
+        font-size: 1.5rem;
+        display: inline-block;
+      }
 
-    p {
-      @include reset;
-      display: inline-block;
-      font-size: 1.5rem;
-      text-align: right;
+      p {
+        font-size: 1.5rem;
+      }
     }
   }
 }
