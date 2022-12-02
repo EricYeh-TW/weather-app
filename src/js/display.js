@@ -51,21 +51,21 @@ const display = async (city = '臺北市') => {
 
   // forecast
   const forecastSections = document.querySelectorAll('.forecast__item');
-  forecastSections.forEach((section, index) => {
-    const day = new Intl.DateTimeFormat('default', config).format(new Date().setDate(today.getDate() + index));
-    const min = forecastData[0].weatherElement[2].time[index].parameter.parameterName;
-    const max = forecastData[0].weatherElement[3].time[index].parameter.parameterName;
+  forecastSections.forEach((section, i) => {
+    const day = new Intl.DateTimeFormat('default', config).format(new Date().setDate(today.getDate() + i));
+    const min = forecastData[0].weatherElement[2].time[i].parameter.parameterName;
+    const max = forecastData[0].weatherElement[3].time[i].parameter.parameterName;
     const temp = (Number(min) + Number(max)) / 2;
 
     const forecastContent = `
       <h3 class="forecast__time">${day}</h3>
       <div class="forecast__content forecast__weather">
         <i>☀<span>天氣現象:</span></i>
-        <p>${forecastData[0].weatherElement[0].time[index].parameter.parameterName}</p>
+        <p>${forecastData[0].weatherElement[0].time[i].parameter.parameterName}</p>
       </div>
       <div class="forecast__content forecast__droplet">
         <i>💧<span>降雨機率:</span></i>
-        <p>${forecastData[0].weatherElement[1].time[index].parameter.parameterName}</p>
+        <p>${forecastData[0].weatherElement[1].time[i].parameter.parameterName}</p>
       </div>
       <div class="forecast__content forecast__temp">
         <i>🌡<span>平均溫度:</span></i>
