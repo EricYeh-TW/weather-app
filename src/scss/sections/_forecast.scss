@@ -17,7 +17,6 @@
     @include reset;
     display: flex;
     flex-wrap: wrap;
-    padding-top: $content-padding;
     justify-content: center;
     align-items: center;
     border-bottom: $secondary-border;
@@ -28,6 +27,7 @@
     width: 100%;
     text-align: left;
     font-size: 1.25rem;
+    padding: 1rem 0;
   }
 
   &__content {

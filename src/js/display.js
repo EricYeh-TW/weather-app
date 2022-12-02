@@ -6,46 +6,73 @@ function setInnerHtml(content) {
   return this;
 }
 
+// function observeIcon(content) {
+//   const icon = ['☀', '⛅', '☁', '🌧', '⛈'];
+//   const weather = ['晴', '雲', '陰', '雨', '雷'];
+//   weather.map((item, index) => {
+//     if (content.match(item) !== null) {
+//       return icon[index];
+//     }
+//     return icon[0];
+//   });
+// }
+
 const display = async (city = '臺北市') => {
-  const toggle = document.querySelector('.dropdown-toggle');
-  const title = document.querySelector('.title > span');
-  const current = document.querySelector('article');
-  // prettier-ignore
-  const [firstDay, secondDay, thirdDay] = ['first', 'second', 'third'].map((elem) => document.querySelector(`.${elem}__day`));
   const observeData = await fetchWeatherObservation(city);
   const forecastData = await fetchWeatherForecast(city);
+  console.log(observeData);
+  console.log(forecastData);
+  // time
   const today = new Date();
-  const style = 'm-0 p-0 fw-bold';
+  const config = {
+    weekday: 'long',
+    year: 'numeric',
+    month: 'numeric',
+    day: '2-digit',
+  };
+  const time = new Intl.DateTimeFormat('default', config).format(today);
 
-  // title
-  [toggle, title].map((element) => setInnerHtml.call(element, city));
-
-  // observe
-  [current].map((element) => {
-    const data = observeData[0];
-    const h2 = data.parameter[0].parameterValue + data.parameter[1].parameterValue;
-    const content = `
-      <h2 class="${style} text-primary">${h2}</h2>
-      <small class="${style} text-dark">站別: ${data.locationName}</small>
-      <h1 class="${style} temp text-primary">${data.weatherElement[0].elementValue}</h1>
-      <p class="${style} fs-4 text-dark">${data.weatherElement[1].elementValue}</p>
-    `;
-    return setInnerHtml.call(element, content);
-  });
+  // current
+  const currentSections = document.querySelectorAll('.current__item');
+  const currentContent = {
+    0: `
+      <h1 class="current__city fw-normal">
+        ${observeData[0].parameter[0].parameterValue + observeData[0].parameter[1].parameterValue}
+      </h1>
+      <p class="current__location">站別: ${observeData[0].locationName}</p>
+      <p class="current__time">${time}</p>
+    `,
+    1: `
+      <h1 class="current__temp fw-bold">${observeData[0].weatherElement[0].elementValue}°</h1>
+      <p class="current__desc">${observeData[0].weatherElement[1].elementValue}</p>
+    `,
+  };
+  currentSections.forEach((section, i) => setInnerHtml.call(section, currentContent[i]));
 
   // forecast
-  [firstDay, secondDay, thirdDay].map((element, i) => {
-    const weather = forecastData[0].weatherElement;
-    const minTemp = Number(weather[2].time[i].parameter.parameterName);
-    const maxTemp = Number(weather[3].time[i].parameter.parameterName);
-    const content = `
-      <th scope="row">${today.getMonth() + 1} / ${today.getDate() + i}</th>
-      <td>${weather[0].time[i].parameter.parameterName}</td>
-      <td class="percent">${weather[1].time[i].parameter.parameterName}</td>
-      <td class="temp">${((minTemp + maxTemp) / 2).toFixed(1)}</td>
-    `;
+  const forecastSections = document.querySelectorAll('.forecast__item');
+  forecastSections.forEach((section, index) => {
+    const day = new Intl.DateTimeFormat('default', config).format(new Date().setDate(today.getDate() + index));
+    const min = forecastData[0].weatherElement[2].time[index].parameter.parameterName;
+    const max = forecastData[0].weatherElement[3].time[index].parameter.parameterName;
+    const temp = (Number(min) + Number(max)) / 2;
 
-    return setInnerHtml.call(element, content);
+    const forecastContent = `
+      <h3 class="forecast__time">${day}</h3>
+      <div class="forecast__content forecast__weather">
+        <i>☀<span>天氣現象:</span></i>
+        <p>${forecastData[0].weatherElement[0].time[index].parameter.parameterName}</p>
+      </div>
+      <div class="forecast__content forecast__droplet">
+        <i>💧<span>降雨機率:</span></i>
+        <p>${forecastData[0].weatherElement[1].time[index].parameter.parameterName}</p>
+      </div>
+      <div class="forecast__content forecast__temp">
+        <i>🌡<span>平均溫度:</span></i>
+        <p>${temp}°</p>
+      </div>
+    `;
+    setInnerHtml.call(section, forecastContent);
   });
 };
 

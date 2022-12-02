@@ -1,7 +1,6 @@
 import '../scss/main.scss';
 // eslint-disable-next-line
 import * as bootstrap from 'bootstrap';
-import handleClick from './handle';
 import display from './display';
 import home from '../templates/home.html';
 import menu from '../templates/menu.html';
@@ -37,6 +36,7 @@ function locationHandler() {
   document.querySelector('#root').innerHTML = html;
   document.title = route.title;
   document.querySelector('meta[name="description"]').setAttribute('content', route.description);
+  display();
 }
 
 function routeHandler(e = window.event) {
