@@ -1,49 +1,11 @@
 import '../scss/main.scss';
 // eslint-disable-next-line
 import * as bootstrap from 'bootstrap';
+import { locationHandler, routeHandler } from './router';
+import fetchWeatherObservation from './fetchObservation';
 import display from './display';
-import home from '../templates/home.html';
-import menu from '../templates/menu.html';
-import _404 from '../templates/404.html';
 
-const pageTitle = 'Weather App';
-
-const routes = {
-  404: {
-    template: _404,
-    title: `${pageTitle} | 404`,
-    description: 'Page not found',
-  },
-  '/': {
-    template: home,
-    title: `${pageTitle} | home`,
-    description: 'This is a simple weather app',
-  },
-  menu: {
-    template: menu,
-    title: `${pageTitle} | menu`,
-    description: 'Setting for city & location & background-image',
-  },
-};
-
-function locationHandler() {
-  let location = window.location.hash.replace('#', '');
-  if (location.length === 0) {
-    location = '/';
-  }
-  const route = routes[location] || routes[404];
-  const html = route.template;
-  document.querySelector('#root').innerHTML = html;
-  document.title = route.title;
-  document.querySelector('meta[name="description"]').setAttribute('content', route.description);
-  display();
-}
-
-function routeHandler(e = window.event) {
-  e.preventDefault();
-  window.history.pushState({}, '', e.target.href);
-  locationHandler();
-}
+let currentNumber = 1;
 
 window.addEventListener('hashchange', locationHandler);
 locationHandler();
@@ -53,3 +15,18 @@ menuButton.addEventListener('click', (e) => {
   e.preventDefault();
   routeHandler(e);
 });
+
+const handleClick = async (e) => {
+  e.preventDefault();
+  const observeData = await fetchWeatherObservation();
+  const locationNumber = observeData.length;
+  display(currentNumber);
+  currentNumber += 1;
+
+  if (currentNumber >= locationNumber) {
+    currentNumber = 0;
+  }
+};
+
+const nextStationButton = document.querySelector('.arrow-btn');
+nextStationButton.addEventListener('click', (e) => handleClick(e));

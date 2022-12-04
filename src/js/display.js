@@ -6,22 +6,13 @@ function setInnerHtml(content) {
   return this;
 }
 
-// function observeIcon(content) {
-//   const icon = ['☀', '⛅', '☁', '🌧', '⛈'];
-//   const weather = ['晴', '雲', '陰', '雨', '雷'];
-//   weather.map((item, index) => {
-//     if (content.match(item) !== null) {
-//       return icon[index];
-//     }
-//     return icon[0];
-//   });
-// }
-
-const display = async (city = '臺北市') => {
-  const observeData = await fetchWeatherObservation(city);
-  const forecastData = await fetchWeatherForecast(city);
+const display = async (ID = 0) => {
+  const observeData = await fetchWeatherObservation();
+  const forecastData = await fetchWeatherForecast();
   console.log(observeData);
   console.log(forecastData);
+  console.log(ID);
+
   // time
   const today = new Date();
   const config = {
@@ -37,14 +28,14 @@ const display = async (city = '臺北市') => {
   const currentContent = {
     0: `
       <h1 class="current__city fw-normal">
-        ${observeData[0].parameter[0].parameterValue + observeData[0].parameter[1].parameterValue}
+        ${observeData[ID].parameter[0].parameterValue + observeData[0].parameter[1].parameterValue}
       </h1>
-      <p class="current__location">站別: ${observeData[0].locationName}</p>
+      <p class="current__location">站別: ${observeData[ID].locationName}</p>
       <p class="current__time">${time}</p>
     `,
     1: `
-      <h1 class="current__temp fw-bold">${observeData[0].weatherElement[0].elementValue}°</h1>
-      <p class="current__desc">${observeData[0].weatherElement[1].elementValue}</p>
+      <h1 class="current__temp fw-bold">${observeData[ID].weatherElement[0].elementValue}°</h1>
+      <p class="current__desc">${observeData[ID].weatherElement[1].elementValue}</p>
     `,
   };
   currentSections.forEach((section, i) => setInnerHtml.call(section, currentContent[i]));
