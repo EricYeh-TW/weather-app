@@ -33,7 +33,9 @@ function locationHandler() {
   document.querySelector('#root').innerHTML = html;
   document.title = route.title;
   document.querySelector('meta[name="description"]').setAttribute('content', route.description);
-  display();
+  if (location === '/') {
+    display();
+  }
 }
 
 function routeHandler(e = window.event) {

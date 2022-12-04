@@ -11,7 +11,6 @@ const display = async (ID = 0) => {
   const forecastData = await fetchWeatherForecast();
   console.log(observeData);
   console.log(forecastData);
-  console.log(ID);
 
   // time
   const today = new Date();

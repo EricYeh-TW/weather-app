@@ -2,31 +2,21 @@ import '../scss/main.scss';
 // eslint-disable-next-line
 import * as bootstrap from 'bootstrap';
 import { locationHandler, routeHandler } from './router';
-import fetchWeatherObservation from './fetchObservation';
-import display from './display';
+import handleClick from './handleClick';
 
-let currentNumber = 1;
-
-window.addEventListener('hashchange', locationHandler);
+window.addEventListener('hashchange', () => locationHandler());
 locationHandler();
 
-const menuButton = document.querySelector('.menu-btn');
-menuButton.addEventListener('click', (e) => {
+document.addEventListener('click', (e) => {
   e.preventDefault();
-  routeHandler(e);
-});
+  const { target } = e;
+  const list = target.classList.value.split(' ');
 
-const handleClick = async (e) => {
-  e.preventDefault();
-  const observeData = await fetchWeatherObservation();
-  const locationNumber = observeData.length;
-  display(currentNumber);
-  currentNumber += 1;
-
-  if (currentNumber >= locationNumber) {
-    currentNumber = 0;
+  if (list.includes('arrow-btn')) {
+    handleClick();
   }
-};
 
-const nextStationButton = document.querySelector('.arrow-btn');
-nextStationButton.addEventListener('click', (e) => handleClick(e));
+  if (list.includes('menu-btn') || list.includes('menu__selection')) {
+    routeHandler(e);
+  }
+});
