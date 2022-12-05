@@ -3,8 +3,8 @@ import { routeHandler } from './router';
 
 let currentNumber = 1;
 
-const handleArrowBtn = async (number) => {
-  renderCurrent();
+const handleArrowBtn = async (data, number) => {
+  renderCurrent(data, currentNumber);
   currentNumber += 1;
 
   if (currentNumber >= number) {
@@ -12,14 +12,14 @@ const handleArrowBtn = async (number) => {
   }
 };
 
-function handleClick(e, number) {
+function handleClick(e, data) {
   e.preventDefault();
   const { target } = e;
   const list = target.classList.value.split(' ');
-  console.log(number);
+  console.log(data.length);
 
   if (list.includes('arrow-btn')) {
-    handleArrowBtn(number);
+    handleArrowBtn(data, data.length);
   }
 
   if (list.includes('menu-btn')) {
@@ -33,7 +33,7 @@ function handleClick(e, number) {
   }
 
   if (list.includes('dropdown-item')) {
-    renderDropDown(number);
+    renderDropDown(data.length);
   }
 }
 

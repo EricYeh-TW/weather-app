@@ -20,7 +20,7 @@ const fetchData = async () => {
 };
 
 window.addEventListener('hashchange', () => locationHandler());
-document.addEventListener('click', (e) => handleClick(e, observeData.length));
+document.addEventListener('click', (e) => handleClick(e, observeData));
 
 locationHandler();
 fetchData();

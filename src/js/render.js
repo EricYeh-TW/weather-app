@@ -12,19 +12,19 @@ function setInnerHtml(content) {
   return this;
 }
 
-function renderCurrent(observeData) {
+function renderCurrent(observeData, id = 0) {
   const currentSections = document.querySelectorAll('.current__item');
   const currentContent = {
     0: `
     <h1 class="current__city fw-normal">
-      ${observeData[0].parameter[0].parameterValue + observeData[0].parameter[1].parameterValue}
+      ${observeData[id].parameter[0].parameterValue + observeData[0].parameter[1].parameterValue}
     </h1>
-    <p class="current__location">站別: ${observeData[0].locationName}</p>
+    <p class="current__location">站別: ${observeData[id].locationName}</p>
     <p class="current__time">${time}</p>
   `,
     1: `
-    <h1 class="current__temp fw-bold">${observeData[0].weatherElement[0].elementValue}°</h1>
-    <p class="current__desc">${observeData[0].weatherElement[1].elementValue}</p>
+    <h1 class="current__temp fw-bold">${observeData[id].weatherElement[0].elementValue}°</h1>
+    <p class="current__desc">${observeData[id].weatherElement[1].elementValue}</p>
   `,
   };
   currentSections.forEach((section, i) => setInnerHtml.call(section, currentContent[i]));
