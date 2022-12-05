@@ -1,22 +1,26 @@
 import '../scss/main.scss';
 // eslint-disable-next-line
 import * as bootstrap from 'bootstrap';
-import { locationHandler, routeHandler } from './router';
+import { locationHandler } from './router';
 import handleClick from './handleClick';
+import { renderCurrent, renderForecast } from './render';
+import fetchForecastWeather from './fetchForecast';
+import fetchCurrentWeather from './fetchCurrent';
+
+let observeData;
+let forecastData;
+
+const fetchData = async () => {
+  observeData = await fetchCurrentWeather();
+  forecastData = await fetchForecastWeather();
+  console.log(observeData);
+  console.log(forecastData);
+  renderCurrent(observeData);
+  renderForecast(forecastData);
+};
 
 window.addEventListener('hashchange', () => locationHandler());
+document.addEventListener('click', (e) => handleClick(e, observeData.length));
+
 locationHandler();
-
-document.addEventListener('click', (e) => {
-  e.preventDefault();
-  const { target } = e;
-  const list = target.classList.value.split(' ');
-
-  if (list.includes('arrow-btn')) {
-    handleClick();
-  }
-
-  if (list.includes('menu-btn') || list.includes('menu__selection')) {
-    routeHandler(e);
-  }
-});
+fetchData();

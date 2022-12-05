@@ -1,4 +1,3 @@
-import display from './display';
 import home from '../templates/home.html';
 import menu from '../templates/menu.html';
 import _404 from '../templates/404.html';
@@ -33,9 +32,6 @@ function locationHandler() {
   document.querySelector('#root').innerHTML = html;
   document.title = route.title;
   document.querySelector('meta[name="description"]').setAttribute('content', route.description);
-  if (location === '/') {
-    display();
-  }
 }
 
 function routeHandler(e = window.event) {
