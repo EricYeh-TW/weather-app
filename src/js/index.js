@@ -10,9 +10,9 @@ import fetchCurrentWeather from './fetchCurrent';
 let observeData;
 let forecastData;
 
-const fetchData = async () => {
-  observeData = await fetchCurrentWeather();
-  forecastData = await fetchForecastWeather();
+const fetchData = async (city = '臺北市') => {
+  observeData = await fetchCurrentWeather(city);
+  forecastData = await fetchForecastWeather(city);
   console.log(observeData);
   console.log(forecastData);
   renderCurrent(observeData);

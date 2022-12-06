@@ -93,6 +93,14 @@
   }
 }
 
+.check-btn {
+  @include reset;
+  width: 100%;
+  margin-top: 1rem;
+  color: $primary-button-color;
+  font-size: 1.25rem;
+}
+
 @media (hover: hover) {
   .arrow-btn:hover {
     color: $secondary-button-color;
@@ -123,5 +131,9 @@
     &::after {
       color: $secondary-button-color;
     }
+  }
+
+  .check-btn:hover {
+    color: $secondary-button-color;
   }
 }

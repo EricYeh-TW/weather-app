@@ -17,7 +17,7 @@ function renderCurrent(data, id = 0) {
   const currentContent = {
     0: `
     <h1 class="current__city fw-normal">
-      ${data[id].parameter[0].parameterValue + data[0].parameter[1].parameterValue}
+      ${data[id].parameter[0].parameterValue + data[id].parameter[1].parameterValue}
     </h1>
     <p class="current__location">站別: ${data[id].locationName}</p>
     <p class="current__time">${time}</p>
@@ -62,11 +62,12 @@ function renderSelection(item, content) {
   toggle.textContent = content;
 }
 
-function renderDropDown(number) {
+function renderDropDown(data) {
+  const number = data.length;
   const dropDown = document.querySelector('.menu__location');
   let ul = '';
   for (let i = 0; i < number; i += 1) {
-    ul += '<li><button class="dropdown-item">請先選擇城市</button></li>';
+    ul += `<li><button class="dropdown-item">${data[i].locationName}</button></li>`;
   }
   const content = `
     <h2 class="menu__title">選擇站別:</h2>
