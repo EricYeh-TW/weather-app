@@ -12,7 +12,7 @@ function setInnerHtml(content) {
   return this;
 }
 
-function renderCurrent(data, id = 0) {
+function renderCurrent(data, id) {
   const currentSections = document.querySelectorAll('.current__item');
   const currentContent = {
     0: `
