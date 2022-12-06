@@ -13,8 +13,6 @@ let forecastData;
 const fetchData = async (city = '臺北市') => {
   observeData = await fetchCurrentWeather(city);
   forecastData = await fetchForecastWeather(city);
-  console.log(observeData);
-  console.log(forecastData);
   renderCurrent(observeData, 0);
   renderForecast(forecastData);
 };

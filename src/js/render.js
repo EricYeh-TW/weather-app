@@ -39,7 +39,7 @@ function renderForecast(data) {
     const temp = (Number(min) + Number(max)) / 2;
 
     const forecastContent = `
-      <h3 class="forecast__time">${day}</h3>
+      <h3 class="forecast__time">${data[0].locationName} · ${day}</h3>
       <div class="forecast__content forecast__weather">
         <i>☀<span>天氣現象:</span></i>
         <p>${data[0].weatherElement[0].time[i].parameter.parameterName}</p>
