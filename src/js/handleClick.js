@@ -4,10 +4,10 @@ import { routeHandler } from './router';
 import fetchCurrentWeather from './fetchCurrent';
 import fetchForecastWeather from './fetchForecast';
 
-let currentNumber = 0;
+let currentIndex = 0;
+let maxIndex = 0;
 let updateCurrentData;
 let updateForecastData;
-let updateIndex;
 
 const handleClick = async (e, data) => {
   e.preventDefault();
@@ -15,11 +15,11 @@ const handleClick = async (e, data) => {
   const list = target.classList.value.split(' ');
 
   if (list.includes('arrow-btn')) {
-    currentNumber += 1;
-    if (currentNumber >= data.length) {
-      currentNumber = 0;
-    }
-    renderCurrent(data, currentNumber);
+    if (updateCurrentData === undefined) updateCurrentData = data;
+    maxIndex = updateCurrentData.length - 1;
+    currentIndex += 1;
+    if (currentIndex > maxIndex) currentIndex = 0;
+    renderCurrent(updateCurrentData, currentIndex);
   }
 
   if (list.includes('menu-btn')) {
@@ -42,8 +42,7 @@ const handleClick = async (e, data) => {
       const locationList = target.parentNode.parentNode.querySelectorAll('li');
       locationList.forEach((_, i) => {
         if (locationList[i].innerText === target.textContent) {
-          updateIndex = i;
-          currentNumber = updateIndex;
+          currentIndex = i;
         }
       });
     }
@@ -55,7 +54,7 @@ const handleClick = async (e, data) => {
 
   if (list.includes('check-btn')) {
     routeHandler(e);
-    renderCurrent(updateCurrentData, updateIndex);
+    renderCurrent(updateCurrentData, currentIndex);
     renderForecast(updateForecastData);
   }
 };
